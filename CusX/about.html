@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>Arcwork &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+      <video id="video" autoplay></video>
+      <button id="snap">Capture</button>
+      <button id="new">New</button>
+      <canvas id="canvas" width="640" height="480"></canvas>
+      <button id="upload">Upload</button>
+      <script>
+          // Put event listeners into place
+          window.addEventListener("DOMContentLoaded", function() {
+          // Grab elements, create settings, etc.
+          var canvas = document.getElementById("canvas"),
+          context = canvas.getContext("2d"),
+          video = document.getElementById("video"),
+          videoObj = { "video": true },
+          errBack = function(error) {
+            console.log("Video capture error: ", error.code); 
+          };
+          // Put video listeners into place
+          if(navigator.getUserMedia) { // Standard
+            navigator.getUserMedia(videoObj, function(stream) {
+              video.src = stream;
+              video.play();
+            }, errBack);
+            } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+            navigator.webkitGetUserMedia(videoObj, function(stream){
+              video.src = window.webkitURL.createObjectURL(stream);
+              video.play();
+            }, errBack);
+            } else if(navigator.mozGetUserMedia) { // WebKit-prefixed
+            navigator.mozGetUserMedia(videoObj, function(stream){
+              video.src = window.URL.createObjectURL(stream);
+              video.play();
+            }, errBack);
+          }
+          // Trigger photo take
+          document.getElementById("snap").addEventListener("click", function() {
+            context.drawImage(video, 0, 0, 640, 480);
+            // Littel effects
+            $('#video').fadeOut('slow');
+            $('#canvas').fadeIn('slow');
+            $('#snap').hide();
+            $('#new').show();
+            // Allso show upload button
+            //$('#upload').show();
+          });
+          // Capture New Photo
+          document.getElementById("new").addEventListener("click", function() {
+            $('#video').fadeIn('slow');
+            $('#canvas').fadeOut('slow');
+            $('#snap').show();
+            $('#new').hide();
+          });
+          // Upload image to sever 
+          document.getElementById("upload").addEventListener("click", function(){
+            var dataUrl = canvas.toDataURL();
+            $.ajax({
+              type: "POST",
+              url: "camsave.php",
+              data: { 
+                imgBase64: dataUrl
+              }
+              }).done(function(msg) {
+              console.log('saved');
+              // Do Any thing you want
+            });
+          });
+        }, false);
+        </script>
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/aos.js"></script>
+  
+
+    <script src="js/typed.js"></script>
+            <script>
+            var typed = new Typed('.typed-words', {
+            strings: ["Business"," Startups"," Organization", " Company"],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
+            });
+            </script>
+
+
+    <script src="js/main.js"></script>
+
+  </body>
+
+</html>
+
