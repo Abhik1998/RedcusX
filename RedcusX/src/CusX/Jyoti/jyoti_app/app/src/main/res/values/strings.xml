@@ -1,0 +1,23 @@
+<resources>
+  <string name="app_name">HelpMeSee</string>
+  <string name="speechB_text"> Talk </string>
+  <string name="hintEnd">Chose destination...</string>
+  <string name="gps_off_title">Gps is off</string>
+  <string name="gps_off_message">Please turn Gps on in order to use this app.</string>
+  <string name="network_off_title">Internet can\'t be reached</string>
+  <string name="OK">Ok</string>
+  <string name="distance_km">Distance</string>
+  <string name="distance_hint">0 km</string>
+  <string name="duration">Duration</string>
+  <string name="duration_hint">0 min</string>
+  <string name="find_path"> Find Path </string>
+  <string name="add_friend">Add friend</string>
+  <string name="help">Help</string>
+  <string name="location_text">Faculty of Computer Science\nBld. Vasile Parvan\nTimisoara</string>
+  <string-array name="test_locations">
+    <item>Catedrala Mitropolitana Timisoara</item>
+    <item>Auchan Timisoara</item>
+    <item>Biblioteca Universitatii Politehnica Timisoara</item>
+    <item>Baza 2 Upt</item>
+  </string-array>
+</resources>

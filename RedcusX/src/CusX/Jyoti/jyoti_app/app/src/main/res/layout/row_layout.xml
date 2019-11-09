@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/row_layout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="15dp"
+  card_view:cardBackgroundColor="@color/common_google_signin_btn_text_light_pressed"
+  >
+
+  <TextView
+    android:id="@+id/tvId"
+    android:layout_width="314dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:hint="app feature"
+    android:minHeight="48dp"
+    android:minWidth="48dp"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="35sp"
+    />
+    <!--android:textColor="@color/white"-->
+
+</android.support.v7.widget.CardView>
