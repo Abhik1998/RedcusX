@@ -1,3 +1,5 @@
 # RedcusX
 ## Red Hat hackathon project
-Our promotional video is at [CusX](https://youtu.be/94KKqzIQFSM)
+Please have a look at our promotional video
+
+[![Watch the video](https://img.youtube.com/vi/uC8n9TReHck/hqdefault.jpg)](https://youtu.be/uC8n9TReHck)
